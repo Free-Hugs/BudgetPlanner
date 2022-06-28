@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class RemoveAmount extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class RemoveAmount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RemoveAmount.this, MainActivity.class);
                 startActivity(intent);
+                Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }
         });
     }
