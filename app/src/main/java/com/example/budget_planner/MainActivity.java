@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Database db = new Database(MainActivity.this);
-        db.insertData(0);
-
+        int wallet = db.latest();
+        Log.i("Wallet state", String.valueOf(wallet));
         /**
          * Add Button redirection
          */
