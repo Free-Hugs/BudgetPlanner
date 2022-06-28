@@ -28,8 +28,8 @@ public class RemoveAmount extends AppCompatActivity {
                 startActivity(intent);
                 int amount = db.latest();
                 Log.i("Amount remove", String.valueOf(amount));
-                int adding = Integer.parseInt(amountToRemove.getText().toString());
-                db.insertData(amount - adding);
+                int remove = Integer.parseInt(amountToRemove.getText().toString());
+                db.insertData(amount - remove);
                 Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }
         });
