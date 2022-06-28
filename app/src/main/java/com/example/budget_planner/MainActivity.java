@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * Add Button redirection
+         */
         Button add = findViewById(R.id.addButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Remove Button redirection
+         */
         Button remove = findViewById(R.id.minusButton);
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /**
+         * Date update
+         */
+        TextView dateDisplay = findViewById(R.id.date);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String date = dateFormat.format(calendar.getTime());
+        dateDisplay.setText(date);
     }
 }
