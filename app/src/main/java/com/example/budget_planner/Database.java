@@ -49,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
     /**
      * SQL Insert info in Database
      */
-    public void insertData(int wallet)
+    public void insertData(double wallet)
     {
         Log.i("Update wallet"," Insert in database");
         SQLiteDatabase db = getWritableDatabase();
@@ -65,15 +65,15 @@ public class Database extends SQLiteOpenHelper {
     /**
      * SQL get latest info from Database
      */
-    public int latest() {
-        int late = 0;
+    public double latest() {
+        double late = 0;
         String select = new String("SELECT * from " + DATABASE_TABLE_NAME + " ORDER BY " + PKEY + " DESC LIMIT 1");
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(select, null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
-                return late = cursor.getInt((cursor.getColumnIndex(COL2)));
+                return late = cursor.getDouble((cursor.getColumnIndex(COL2)));
             } while (cursor.moveToNext());
         }
         return late;

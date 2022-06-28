@@ -26,9 +26,10 @@ public class RemoveAmount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(RemoveAmount.this, MainActivity.class);
                 startActivity(intent);
-                int amount = db.latest();
+                double amount = db.latest();
                 Log.i("Amount remove", String.valueOf(amount));
-                int remove = Integer.parseInt(amountToRemove.getText().toString());
+                double remove = Double.parseDouble(amountToRemove.getText().toString());
+                Log.i("Amount to remove", String.valueOf(remove));
                 db.insertData(amount - remove);
                 Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }

@@ -27,9 +27,9 @@ public class AddingAmount extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AddingAmount.this, MainActivity.class);
                 startActivity(intent);
-                int amount = db.latest();
+                double amount = db.latest();
                 Log.i("Amount add", String.valueOf(amount));
-                int adding = Integer.parseInt(amountToAdd.getText().toString());
+                double adding = Double.parseDouble(amountToAdd.getText().toString());
                 db.insertData(amount + adding);
                 Toast.makeText(AddingAmount.this, "Amount added !", Toast.LENGTH_SHORT).show();
             }

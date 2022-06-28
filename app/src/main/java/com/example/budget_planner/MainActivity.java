@@ -20,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Database db = new Database(MainActivity.this);
-        int wallet = db.latest();
+        double wallet = db.latest();
         Log.i("Wallet state", String.valueOf(wallet));
+
+        TextView currentWallet = findViewById(R.id.currentCount);
+        currentWallet.setText(String.valueOf(db.latest()) + " €");
+
         /**
          * Add Button redirection
          */
