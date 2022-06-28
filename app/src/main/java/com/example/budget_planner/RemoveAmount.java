@@ -34,5 +34,14 @@ public class RemoveAmount extends AppCompatActivity {
                 Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button removeReturn = findViewById(R.id.removeReturnButton);
+        removeReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RemoveAmount.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

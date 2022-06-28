@@ -34,5 +34,14 @@ public class AddingAmount extends AppCompatActivity {
                 Toast.makeText(AddingAmount.this, "Amount added !", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button addReturn = findViewById(R.id.addReturnButton);
+        addReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddingAmount.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
