@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Wallet state", String.valueOf(wallet));
 
         TextView currentWallet = findViewById(R.id.currentCount);
-        currentWallet.setText(String.valueOf(db.latest()) + " €");
+        currentWallet.setText("€ "+ String.valueOf(db.latest()));
 
         /**
          * Add Button redirection
