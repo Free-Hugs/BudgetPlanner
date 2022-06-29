@@ -15,9 +15,16 @@ public class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_FILE_NAME = "budget";
     private static final String DATABASE_TABLE_NAME = "budget";
+
     private static final String PKEY = "id";
     private static final String COL1 = "date";
     private static final String COL2 = "amount";
+    private static final String DATABASE_TABLE2_NAME = "budget";
+
+    private static final String PKEY2 = "id";
+    private static final String COL1_2 = "date";
+    private static final String COL2_2 = "operation";
+
 
     Database(Context context) {
         super(context, DATABASE_FILE_NAME, null, DATABASE_VERSION);
@@ -32,7 +39,12 @@ public class Database extends SQLiteOpenHelper {
                 PKEY + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL1 + " TEXT," +
                 COL2 + " TEXT);";
+        String DATABASE_TABLE2_CREATE = "CREATE TABLE " + DATABASE_TABLE2_NAME + " (" +
+                PKEY2 + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COL1_2 + " TEXT," +
+                COL2_2 + " TEXT);";
         db.execSQL(DATABASE_TABLE_CREATE);
+        db.execSQL(DATABASE_TABLE2_CREATE);
     }
 
     /**
@@ -51,13 +63,26 @@ public class Database extends SQLiteOpenHelper {
      */
     public void insertData(double wallet)
     {
-        Log.i("Update wallet"," Insert in database");
+        Log.i("Update wallet","Insert in database");
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         ContentValues values = new ContentValues();
         values.put(COL1, new SimpleDateFormat("yyyy/dd/MM").format(Calendar.getInstance().getTime()));
         values.put(COL2, wallet);
         db.insertOrThrow(DATABASE_TABLE_NAME,null, values);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+    }
+
+    public void insertOperation(double operation)
+    {
+        Log.i("Insert operation","Insert in database");
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        ContentValues values = new ContentValues();
+        values.put(COL1_2, new SimpleDateFormat("yyyy/dd/MM").format(Calendar.getInstance().getTime()));
+        values.put(COL2_2, operation);
+        db.insertOrThrow(DATABASE_TABLE2_NAME,null, values);
         db.setTransactionSuccessful();
         db.endTransaction();
     }
