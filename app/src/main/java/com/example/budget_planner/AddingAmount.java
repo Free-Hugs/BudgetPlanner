@@ -31,6 +31,7 @@ public class AddingAmount extends AppCompatActivity {
                 Log.i("Amount add", String.valueOf(amount));
                 double adding = Double.parseDouble(amountToAdd.getText().toString());
                 db.insertData(amount + adding);
+                db.insertOperation(adding);
                 Toast.makeText(AddingAmount.this, "Amount added !", Toast.LENGTH_SHORT).show();
             }
         });

@@ -16,7 +16,6 @@ public class OperationsList extends AppCompatActivity {
 
         Database db = new Database(OperationsList.this);
         ListView list = findViewById(R.id.list);
-        db.insertOperation(12.8);
         ArrayAdapter<Double> operations = new ArrayAdapter<Double>(list.getContext(), R.layout.operation_list);
         db.latestOp(operations);
         list.setAdapter(operations);

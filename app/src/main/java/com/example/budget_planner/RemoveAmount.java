@@ -31,6 +31,7 @@ public class RemoveAmount extends AppCompatActivity {
                 double remove = Double.parseDouble(amountToRemove.getText().toString());
                 Log.i("Amount to remove", String.valueOf(remove));
                 db.insertData(amount - remove);
+                db.insertOperation(-remove);
                 Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }
         });
