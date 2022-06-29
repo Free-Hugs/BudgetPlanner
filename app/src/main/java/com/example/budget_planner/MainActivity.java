@@ -58,5 +58,14 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String date = dateFormat.format(calendar.getTime());
         dateDisplay.setText(date);
+
+        Button list = findViewById(R.id.viewOperations);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OperationsList.class);
+                startActivity(intent);
+            }
+        });
     }
 }

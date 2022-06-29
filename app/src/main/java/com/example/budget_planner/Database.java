@@ -7,19 +7,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_FILE_NAME = "budget";
     private static final String DATABASE_TABLE_NAME = "budget";
 
     private static final String PKEY = "id";
     private static final String COL1 = "date";
     private static final String COL2 = "amount";
-    private static final String DATABASE_TABLE2_NAME = "budget";
+    private static final String DATABASE_TABLE2_NAME = "operations";
 
     private static final String PKEY2 = "id";
     private static final String COL1_2 = "date";
@@ -102,5 +103,21 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return late;
+    }
+
+    /**
+     * SQL get latest info from Database
+     */
+    public void latestOp(ArrayAdapter<Double> list) {
+        double late = 0;
+        String select = new String("SELECT * from " + DATABASE_TABLE2_NAME + " ORDER BY " + PKEY + " DESC");
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(select, null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                list.add(cursor.getDouble((cursor.getColumnIndex(COL2_2))));
+            } while (cursor.moveToNext());
+        }
     }
 }
