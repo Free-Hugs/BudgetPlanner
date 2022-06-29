@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_FILE_NAME = "budget";
     private static final String DATABASE_TABLE_NAME = "budget";
 
@@ -35,11 +35,11 @@ public class Database extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String DATABASE_TABLE_CREATE = "CREATE TABLE " + DATABASE_TABLE_NAME + " (" +
+        String DATABASE_TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE_NAME + " (" +
                 PKEY + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL1 + " TEXT," +
                 COL2 + " TEXT);";
-        String DATABASE_TABLE2_CREATE = "CREATE TABLE " + DATABASE_TABLE2_NAME + " (" +
+        String DATABASE_TABLE2_CREATE = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE2_NAME + " (" +
                 PKEY2 + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL1_2 + " TEXT," +
                 COL2_2 + " TEXT);";

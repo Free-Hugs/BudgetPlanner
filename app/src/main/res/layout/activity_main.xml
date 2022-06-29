@@ -11,15 +11,15 @@
         android:id="@+id/currentCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#f2ecff"
         android:scaleX="5"
         android:scaleY="5"
         android:text="0.00 €"
+        android:textColor="#f2ecff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <TextView
         android:id="@+id/date"
@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:scaleX="1.75"
         android:scaleY="1.75"
-        android:textColor="#cacaca"
         android:text="29/12/2021"
+        android:textColor="#cacaca"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,39 +36,56 @@
         app:layout_constraintVertical_bias="0.12" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/minusButton"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
-        android:text="-"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:stateListAnimator="@null"
-        android:elevation="15dp"
-        android:background="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toEndOf="@+id/addButton"
-        app:layout_constraintTop_toBottomOf="@+id/date"
-        app:layout_constraintVertical_bias="0.091"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addButton"
         android:layout_width="68dp"
         android:layout_height="68dp"
+        android:background="@drawable/circle"
+        android:elevation="15dp"
+        android:stateListAnimator="@null"
         android:text="+"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:stateListAnimator="@null"
-        android:elevation="15dp"
-        android:background="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date"
-        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintVertical_bias="0.165"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/minusButton"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:background="@drawable/circle"
+        android:elevation="15dp"
+        android:stateListAnimator="@null"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/addButton"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="0.165"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewOperations"
+        android:layout_width="341dp"
+        android:layout_height="49dp"
+        android:background="@drawable/rounded_button"
+        android:elevation="15dp"
+        android:stateListAnimator="@null"
+        android:text="View all operations"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addButton"
+        app:layout_constraintVertical_bias="0.274"
         tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
