@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".RemoveAmount">
+    tools:context=".AddingAmount">
+
+    <!--<com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dateInput"
+        android:layout_width="341dp"
+        android:layout_height="49dp"
+        android:hint="Date Input Here !"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amountInput"
+        app:layout_constraintVertical_bias="0.108" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/removeReturnButton"
@@ -17,39 +29,35 @@
         android:text="back"
         android:textColor="@color/white"
         android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/amountRemoveInput"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"
+        app:layout_constraintVertical_bias="0.023"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/amountRemoveInput"
-        android:layout_width="341dp"
-        android:layout_height="49dp"
-        android:hint="Amount Here !"
-        android:textColorHint="#989898"
-        android:backgroundTint="@color/white"
-        android:inputType="phone"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="376dp"
+        android:layout_height="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.396"
+        >
 
-    <!--<com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/dateRemoveInput"
-        android:layout_width="341dp"
-        android:layout_height="49dp"
-        android:hint="Date Input Here !"
-        android:inputType="numberSigned"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amountRemoveInput"
-        app:layout_constraintVertical_bias="0.108" />-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amountRemoveInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Amount Here !"
+            android:inputType="phone"
+            android:theme="@style/underlineInput"
+            android:textColorHint="#989898" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/amountRemoveButton"
@@ -62,6 +70,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amountRemoveInput"
+        app:layout_constraintTop_toBottomOf="@+id/textField"
         app:layout_constraintVertical_bias="0.255" />
 </androidx.constraintlayout.widget.ConstraintLayout>

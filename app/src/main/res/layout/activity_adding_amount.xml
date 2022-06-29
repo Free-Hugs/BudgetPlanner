@@ -7,38 +7,6 @@
     android:background="@drawable/background"
     tools:context=".AddingAmount">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addReturnButton"
-        android:layout_width="95dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_secondary_button"
-        android:elevation="15dp"
-        android:stateListAnimator="@null"
-        android:text="back"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/amountInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/amountInput"
-        android:layout_width="341dp"
-        android:layout_height="49dp"
-        android:textColorHint="#989898"
-        android:backgroundTint="@color/white"
-        android:hint="Amount Here !"
-        android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
-
     <!--<com.google.android.material.textfield.TextInputEditText
         android:id="@+id/dateInput"
         android:layout_width="341dp"
@@ -52,6 +20,46 @@
         app:layout_constraintVertical_bias="0.108" />-->
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addReturnButton"
+        android:layout_width="95dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_secondary_button"
+        android:elevation="15dp"
+        android:stateListAnimator="@null"
+        android:text="back"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="376dp"
+        android:layout_height="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/amountInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Amount Here !"
+            android:inputType="phone"
+            android:theme="@style/underlineInput"
+            android:textColorHint="#989898" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/amountAddButton"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -62,6 +70,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amountInput"
+        app:layout_constraintTop_toBottomOf="@+id/textField"
         app:layout_constraintVertical_bias="0.255" />
 </androidx.constraintlayout.widget.ConstraintLayout>
