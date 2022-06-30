@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_FILE_NAME = "budget";
     private static final String DATABASE_TABLE_NAME = "budget";
 
@@ -25,6 +25,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String PKEY2 = "id";
     private static final String COL1_2 = "date";
     private static final String COL2_2 = "operation";
+    private static final String COL3_2 = "motif";
 
 
     Database(Context context) {
@@ -43,7 +44,8 @@ public class Database extends SQLiteOpenHelper {
         String DATABASE_TABLE2_CREATE = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE2_NAME + " (" +
                 PKEY2 + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL1_2 + " TEXT," +
-                COL2_2 + " TEXT);";
+                COL2_2 + " TEXT," +
+                COL3_2 + " TEXT);";
         db.execSQL(DATABASE_TABLE_CREATE);
         db.execSQL(DATABASE_TABLE2_CREATE);
     }
@@ -75,7 +77,7 @@ public class Database extends SQLiteOpenHelper {
         db.endTransaction();
     }
 
-    public void insertOperation(double operation)
+    public void insertOperation(double operation, String motif)
     {
         Log.i("Insert operation","Insert in database");
         SQLiteDatabase db = getWritableDatabase();
@@ -83,6 +85,7 @@ public class Database extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL1_2, new SimpleDateFormat("yyyy/dd/MM").format(Calendar.getInstance().getTime()));
         values.put(COL2_2, operation);
+        values.put(COL3_2, motif);
         db.insertOrThrow(DATABASE_TABLE2_NAME,null, values);
         db.setTransactionSuccessful();
         db.endTransaction();
