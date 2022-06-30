@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,12 +39,8 @@ public class OperationsList extends AppCompatActivity {
 
         list.setAdapter(adapter);
 
-
-        /*ArrayAdapter<String> display = new ArrayAdapter<String>(list.getContext(), R.layout.operation_list);
-        for(int i = 0; i<motives.getCount(); i++){
-            display.add(String.valueOf(operations.getItem(i)) + "     " + motives.getItem(i));
-        }
-        list.setAdapter(display);*/
+        TextView currentCount = findViewById(R.id.opCurrentCount);
+        currentCount.setText("€ "+ String.valueOf(db.latest()));
 
         Button returnButton = findViewById(R.id.opReturnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
