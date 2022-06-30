@@ -26,9 +26,9 @@ public class OperationsList extends AppCompatActivity {
         Database db = new Database(OperationsList.this);
         ListView list = findViewById(R.id.list);
 
-        ArrayAdapter<Double> operations = new ArrayAdapter<Double>(this, R.layout.operation_list);
-        ArrayAdapter<String> motives = new ArrayAdapter<String>(this, R.layout.operation_list);
-        ArrayAdapter<String> dates = new ArrayAdapter<String>(this, R.layout.operation_list);
+        ArrayAdapter<Double> operations = new ArrayAdapter<Double>(this, R.layout.multi_columns_layout);
+        ArrayAdapter<String> motives = new ArrayAdapter<String>(this, R.layout.multi_columns_layout);
+        ArrayAdapter<String> dates = new ArrayAdapter<String>(this, R.layout.multi_columns_layout);
         db.latestOp(operations);
         db.latestMotives(motives);
         db.latestDates(dates);
