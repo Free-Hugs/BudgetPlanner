@@ -60,7 +60,7 @@ public class OperationsList extends AppCompatActivity {
             HashMap temp = new HashMap();
             temp.put("First", String.valueOf(operations.getItem(i)));
             temp.put("Second", String.valueOf(motives.getItem(i)));
-            temp.put("Third", String.valueOf(dates));
+            temp.put("Third", String.valueOf(dates.getItem(i)));
             ops.add(temp);
         }
     };
