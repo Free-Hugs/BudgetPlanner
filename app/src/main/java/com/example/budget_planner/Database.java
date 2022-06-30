@@ -112,7 +112,6 @@ public class Database extends SQLiteOpenHelper {
      * SQL get latest info from Database
      */
     public void latestOp(ArrayAdapter<Double> list) {
-        double late = 0;
         String select = new String("SELECT * from " + DATABASE_TABLE2_NAME + " ORDER BY " + PKEY + " DESC");
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(select, null);

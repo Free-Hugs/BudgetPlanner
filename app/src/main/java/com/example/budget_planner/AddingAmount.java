@@ -20,6 +20,7 @@ public class AddingAmount extends AppCompatActivity {
         Database db = new Database(AddingAmount.this);
 
         EditText amountToAdd = findViewById(R.id.amountInput);
+        EditText addMotive = findViewById(R.id.motifInput);
 
         Button addingAmount = findViewById(R.id.amountAddButton);
         addingAmount.setOnClickListener(new View.OnClickListener() {
@@ -30,8 +31,9 @@ public class AddingAmount extends AppCompatActivity {
                 double amount = db.latest();
                 Log.i("Amount add", String.valueOf(amount));
                 double adding = Double.parseDouble(amountToAdd.getText().toString());
+                String motive = addMotive.getText().toString();
                 db.insertData(amount + adding);
-                db.insertOperation(adding);
+                db.insertOperation(adding, motive);
                 Toast.makeText(AddingAmount.this, "Amount added !", Toast.LENGTH_SHORT).show();
             }
         });

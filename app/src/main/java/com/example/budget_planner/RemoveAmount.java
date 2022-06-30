@@ -19,6 +19,7 @@ public class RemoveAmount extends AppCompatActivity {
 
         Database db = new Database(RemoveAmount.this);
         EditText amountToRemove = findViewById(R.id.amountRemoveInput);
+        EditText removeMotive = findViewById(R.id.motifRemoveInput);
 
         Button removeAmount = findViewById(R.id.amountRemoveButton);
         removeAmount.setOnClickListener(new View.OnClickListener() {
@@ -29,9 +30,10 @@ public class RemoveAmount extends AppCompatActivity {
                 double amount = db.latest();
                 Log.i("Amount remove", String.valueOf(amount));
                 double remove = Double.parseDouble(amountToRemove.getText().toString());
+                String motive = removeMotive.getText().toString();
                 Log.i("Amount to remove", String.valueOf(remove));
                 db.insertData(amount - remove);
-                db.insertOperation(-remove);
+                db.insertOperation(-remove, motive);
                 Toast.makeText(RemoveAmount.this, "Amount removed !", Toast.LENGTH_SHORT).show();
             }
         });
