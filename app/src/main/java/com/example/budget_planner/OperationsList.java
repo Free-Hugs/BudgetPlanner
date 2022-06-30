@@ -20,8 +20,15 @@ public class OperationsList extends AppCompatActivity {
         Database db = new Database(OperationsList.this);
         ListView list = findViewById(R.id.list);
         ArrayAdapter<Double> operations = new ArrayAdapter<Double>(list.getContext(), R.layout.operation_list);
+        ArrayAdapter<String> motives = new ArrayAdapter<String>(list.getContext(), R.layout.operation_list);
         db.latestOp(operations);
-        list.setAdapter(operations);
+        db.latestMotives(motives);
+
+        ArrayAdapter<String> display = new ArrayAdapter<String>(list.getContext(), R.layout.operation_list);
+        for(int i = 0; i<motives.getCount(); i++){
+            display.add(String.valueOf(operations.getItem(i)) + "     " + motives.getItem(i));
+        }
+        list.setAdapter(display);
 
         Button returnButton = findViewById(R.id.opReturnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {

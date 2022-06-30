@@ -122,4 +122,16 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
     }
+
+    public void latestMotives(ArrayAdapter<String> list) {
+        String select = new String("SELECT * from " + DATABASE_TABLE2_NAME + " ORDER BY " + PKEY + " DESC");
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(select, null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                list.add(cursor.getString((cursor.getColumnIndex(COL3_2))));
+            } while (cursor.moveToNext());
+        }
+    }
 }
